@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ola Mundo</string>
+    <string name="btnAdivinharText">Adivinha</string>
+    <string name="editTextNumberHint">valor entre 1 e 10</string>
+</resources>
