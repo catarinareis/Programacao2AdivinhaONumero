@@ -1,10 +1,10 @@
 package pt.ipleiria.estg.dei.tutoriaisandroid.olamundo;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -35,19 +35,22 @@ public class MainActivity extends AppCompatActivity {
                 txtGuess.getText().toString().trim().isEmpty())
             return;
 
+        String message;
+        
         int guess = Integer.parseInt(txtGuess.getText().toString());
 
         if (guess == valorAleatorio)
-            Toast.makeText(this, "Acertou!",
-                    Toast.LENGTH_SHORT).show();
+            message = "Acertou!";
         else if (guess < valorAleatorio)
-            Toast.makeText(this, "para cima...",
-                    Toast.LENGTH_SHORT).show();
+            message = "para cima...";
         else
-            Toast.makeText(this, "para baixo...",
-                    Toast.LENGTH_SHORT).show();
+            message = "para baixo...";
+
+        Intent intent = ApresentaResultadoActivity.createIntent(this, message);
+
+        startActivity(intent);
 
         txtGuess.setText("");
-    }
 
+    }
 }
